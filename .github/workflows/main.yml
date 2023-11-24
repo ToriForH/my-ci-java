@@ -19,7 +19,7 @@ jobs:
       run: java -version
 
     - name: Checkout
-      uses: actions/checkout@4.0.0
+      uses: actions/checkout@v4
       with:
         repository: ${{ github.repository }}
         access-token: ${{ secrets.ACCESS_TOKEN }}
