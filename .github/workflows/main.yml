@@ -21,7 +21,7 @@ jobs:
     - name: Clone repository
       uses: GuillaumeFalourd/clone-github-repo-action@v2.2
       with:
-        owner: ${{ gitnub.github_repository_owner }}
+        owner: ${{ github.github_repository_owner }}
         repository: ${{ github.repository }}
         access-token: ${{ secrets.ACCESS_TOKEN }}
 
