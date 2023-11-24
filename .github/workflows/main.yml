@@ -18,15 +18,14 @@ jobs:
     - name: Check Java installation
       run: java -version
 
-    - name: Clone repository
-      uses: GuillaumeFalourd/clone-github-repo-action@v2.2
+    - name: Checkout
+      uses: actions/checkout@3
       with:
-        owner: ${{ github.github_repository_owner }}
         repository: ${{ github.repository }}
         access-token: ${{ secrets.ACCESS_TOKEN }}
 
-    - name: Access repo dir
-      run: cd ${{ github.event.reposotory.name }}
+    - name: List files
+      run: ls -al
 
     - name: Download dependencies
       run: mvn compile
