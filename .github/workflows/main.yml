@@ -10,28 +10,30 @@ jobs:
     steps:
 
     - name: Install JDK 17
-    - uses: actions/setup-java@v3
+      uses: actions/setup-java@v3
       with:
         distribution: 'zulu'
         java-version: '17'
-    - run: java -version
+     
+    - name: Check Java installation
+      run: java -version
 
     - name: Clone repository
-    - uses: GuillaumeFalourd/clone-github-repo-action@v2.2
+      uses: GuillaumeFalourd/clone-github-repo-action@v2.2
       with:
         owner: ${{ gitnub.github_repository_owner }}
         repository: ${{ github.repository }}
         access-token: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Access repo dir
-    - run: cd ${{ github.event.reposotory.name }}
+      run: cd ${{ github.event.reposotory.name }}
 
     - name: Download dependencies
-    - run: mvn compile
+      run: mvn compile
 
     - name: Build project
-    - run: mvn clean package -DskipTests
+      run: mvn clean package -DskipTests
 
     - name: Run Unit tests
-    - run: mvn test
+      run: mvn test
       
