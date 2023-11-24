@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  set-up-os:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
       run: java -version
 
     - name: Checkout
-      uses: actions/checkout@3
+      uses: actions/checkout@4
       with:
         repository: ${{ github.repository }}
         access-token: ${{ secrets.ACCESS_TOKEN }}
